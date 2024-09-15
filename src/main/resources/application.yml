@@ -1,5 +1,9 @@
+server:
+  port: 8081
+
 spring:
+  profiles:
+    active: ${PROFILE:local}
   application:
     name: video-streaming-user-service
-  datasource:
-    driver-class-name:
+

@@ -1,0 +1,18 @@
+spring:
+  security:
+    user:
+      password: hassan
+      name: hassan
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/default
+    username: postgres
+    password: ${POSTGRES_PASSWORD:PWh@ss@n}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
