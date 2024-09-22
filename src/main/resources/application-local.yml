@@ -1,14 +1,13 @@
 spring:
   security:
     user:
-      password: hassan
       name: hassan
-
+      password: hassan
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/default
+    url: jdbc:postgresql://localhost:5432/video-streaming
     username: postgres
-    password: ${POSTGRES_PASSWORD:PWh@ss@n}
+    password: ${POSTGRES_PASSWORD:PWH@ss@n}
   jpa:
     hibernate:
       ddl-auto: update
@@ -16,3 +15,6 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
+#logging:
+ # level:
+  #  org.springframework.security: trace

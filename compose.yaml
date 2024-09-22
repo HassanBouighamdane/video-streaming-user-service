@@ -23,7 +23,7 @@ services:
     volumes:
       - db-data:/var/lib/postgresql/data
     environment:
-      - POSTGRES_DB=default
+      - POSTGRES_DB=video-streaming
       - POSTGRES_PASSWORD_FILE=/run/secrets/db-password
     expose:
       - 5432
@@ -34,8 +34,29 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+  keycloak:
+    container_name: mykeycloak
+    image: quay.io/keycloak/keycloak:25.0.5
+    command:
+      - start-dev
+    ports:
+      - "8090:8080"
+    volumes:
+      - keycloak-data:/opt/keycloak/data
+    environment:
+      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN_PASSWORD=admin
+    networks:
+      - keycloak
+
 volumes:
   db-data:
+  keycloak-data:
+    external: true
+networks:
+  keycloak:
+    external: true
 secrets:
   db-password:
     file: db/password.txt
+
