@@ -7,3 +7,7 @@ spring:
   application:
     name: video-streaming-user-service
 
+security:
+  jwt:
+    secret-key: M0HJO4jIrckccvkOBPv9HPgccXRO5mNx8DAEtPXrMoQ=
+    expiration-time: 3600000
